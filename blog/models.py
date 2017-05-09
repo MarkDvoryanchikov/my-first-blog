@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from tinymce import models as tinyMCE
 
 
 class Post(models.Model):

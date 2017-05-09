@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <p>В основу сайта положены язык программирования Python и фреймворк Django.</p>
+        <p>Также, для удобства создания уроков встроен визуальный WYSWYG редактор TinyMCE.</p>
+        <p>Для отзывчивости контента к разным размерам экранов использована сетка Bootstrap.</p>
+    </div>
+    <div class="post">
+        Сдержание:
+        {% for post in posts %}
+            <div><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

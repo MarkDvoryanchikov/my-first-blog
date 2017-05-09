@@ -1,0 +1,41 @@
+    {% extends 'blog/base.html' %}
+
+
+
+    {% block content %}
+        <div class="post">
+            {% if post.published_date %}
+                <div class="date">
+{#                    {{ post.published_date }}#}
+                </div>
+            {% else %}
+                <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            {% endif %}
+            <h1>{{ post.title }}</h1>
+            <div id="text">
+                {{ post.text|safe }}
+            </div>
+        </div>
+        <div></div>
+        <div class="prev-next-post">
+            {% if post.get_previous_by_created_date %}
+                <div class="prev-post">
+                <a href="{% url 'post_detail' pk=post.get_previous_by_created_date.pk %}">
+                    << {{ post.get_previous_by_created_date.title }}
+                </a>
+            </div>
+            {% endif %}
+            {% if post.get_next_by_created_date %}
+                <div class="next-post">
+                <a href="{% url 'post_detail' pk=post.get_next_by_created_date.id %}">
+                    {{ post.get_next_by_created_date.title }} >>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+    {% endblock %}
