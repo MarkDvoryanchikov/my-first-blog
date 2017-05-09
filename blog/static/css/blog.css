@@ -26,6 +26,7 @@ body {
     height: 100%;
     padding: 50px 0 0 0;
 }
+
 h1 {
     font-family: "Source Sans Pro Bold", arial;
 }
@@ -108,3 +109,20 @@ h1, h2, h3, h4 {
   }
 }
 
+
+
+.prev-next-post {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.prev-post,
+.next-post {
+    float: left;
+    width: 50%;
+}
+
+.next-post {
+    text-align: right;
+}
