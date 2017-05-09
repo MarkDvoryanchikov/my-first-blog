@@ -20,7 +20,7 @@
     </head>
     <body>
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-            <a class="navmenu-brand" href="#">Закрыть</a>
+            <a class="navmenu-brand" href="#"><b>Содержание:</b></a>
             <ul class="nav navmenu-nav">
                 {% for post in posts %}
                     <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>

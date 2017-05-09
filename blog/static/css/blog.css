@@ -36,6 +36,10 @@ h1 a {
 
 }
 
+.post h1 {
+    margin-bottom: 24px;
+}
+
 .page-header {
     background-color: #f36c60;
     margin-top: 0;
@@ -109,12 +113,12 @@ h1, h2, h3, h4 {
   }
 }
 
-
-
 .prev-next-post {
     position: relative;
     display: inline-block;
     width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .prev-post,
@@ -125,4 +129,23 @@ h1, h2, h3, h4 {
 
 .next-post {
     text-align: right;
+}
+
+
+a[href^=http]:hover {
+  text-decoration: none;
+}
+
+a[href^=http]:hover:after {
+  content: attr(data-glossarium);
+  position: absolute;
+  left: 1em;
+  right: 1em;
+  background-color: gray;
+  color: white;
+  padding: 1em 1em;
+  line-height: 1;
+  min-width:100px;
+  max-width:100%;
+  margin-top:1em;
 }

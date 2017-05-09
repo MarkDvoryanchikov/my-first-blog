@@ -2,8 +2,29 @@
 
 $(document).ready(function () {
 
+    $( "h1" ).one('load', function() {
+        // if ($(this).html() == "Глоссарий") {
+        // var id = url.substring(url.lastIndexOf('/') + 1);
+        // alert("kk"); // 234234234
+        // }("kk");
+    });
+
+    if ($(".post h1").html() == "Глоссарий") {
+        id = $(location).attr('href').substring($(location).attr('href').lastIndexOf('/') + 1);
+         $(id).css({ background: '#effcad'});
+    }
+    /*
+    if ($('.post h1').html() == "Глоссарий") {
+        var id = url.substring(url.lastIndexOf('/') + 1);
+        alert("kk"); // 234234234
+    }
+            alert("kk"); // 234234234
+*/
+        // var id = url.substring(url.lastIndexOf('/'));
+        // alert(url.location.href);
 
     tinyMCE.init({
+
     // General options
     mode : "textareas",
     theme : "advanced",
@@ -35,10 +56,9 @@ $(document).ready(function () {
         {title : 'Table styles'},
         {title : 'Table row 1', selector : 'tr', classes : 'tablerow'}
     ],
-
-    width: '700',
-    height: '400'
+    "file_browser_callback": "mce_filebrowser",
+    width: '900',
+    height: '700'
     });
-
 
 })

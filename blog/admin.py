@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post
+from mce_filebrowser.admin import MCEFilebrowserAdmin
 
 
 class TinyMCEAdmin(admin.ModelAdmin):
