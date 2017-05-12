@@ -132,20 +132,46 @@ h1, h2, h3, h4 {
 }
 
 
-a[href^=http]:hover {
+a[href^="../../post/16"]:hover {
   text-decoration: none;
 }
 
-a[href^=http]:hover:after {
+a[href^="../../post/16"]:hover:after {
   content: attr(data-glossarium);
   position: absolute;
   left: 1em;
   right: 1em;
-  background-color: gray;
+  background-color: rgba(40, 56, 28, 0.86);
   color: white;
   padding: 1em 1em;
   line-height: 1;
   min-width:100px;
   max-width:100%;
   margin-top:1em;
+}
+
+
+
+label {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 0 10px;
+    display: block;
+    font-weight: 100;
+}
+label:hover {
+ background:#eee;
+ cursor:pointer;
+}
+
+.label-checked {
+    background: rgba(255, 204, 0, 0.33) !important;
+}
+
+.true-answer {
+    background: rgba(45, 255, 0, 0.33) !important;
+}
+
+.false-answer {
+    background: rgba(255, 82, 0, 0.33) !important;
 }
