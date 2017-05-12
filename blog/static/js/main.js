@@ -2,26 +2,35 @@
 
 $(document).ready(function () {
 
-    $( "h1" ).one('load', function() {
-        // if ($(this).html() == "Глоссарий") {
-        // var id = url.substring(url.lastIndexOf('/') + 1);
-        // alert("kk"); // 234234234
-        // }("kk");
-    });
 
     if ($(".post h1").html() == "Глоссарий") {
-        id = $(location).attr('href').substring($(location).attr('href').lastIndexOf('/') + 1);
-         $(id).css({ background: '#effcad'});
+        var id = $(location).attr('href').substring($(location).attr('href').lastIndexOf('/') + 1);
+        $(id).css({ background: '#effcad'});
     }
-    /*
-    if ($('.post h1').html() == "Глоссарий") {
-        var id = url.substring(url.lastIndexOf('/') + 1);
-        alert("kk"); // 234234234
+
+    if ($(".post h1").html() == "1.4 Тест") {
+        $('input[type=checkbox]').prop( "checked", function() {
+          return false;
+        });
+
+        $('label input[type="checkbox"]').click(function(){
+            $(this).parent('label').toggleClass('label-checked');
+        });
+
+        $('input[type=submit]').click(function(){
+            var nTrue = 0, nAll = 0;
+            $('label input[type="checkbox"]').each(function(){
+                if ($(this).val() == "true")
+                    $(this).parent('label').addClass( 'true-answer');
+                else
+                    $(this).parent('label').addClass( 'false-answer');
+            });
+            alert("Вы ответили правильно на "+ prov() +" из "+ 4 +" вопросов. Для повторного прохождения обновите страницу");
+        })
+
     }
-            alert("kk"); // 234234234
-*/
-        // var id = url.substring(url.lastIndexOf('/'));
-        // alert(url.location.href);
+
+
 
     tinyMCE.init({
 
@@ -61,4 +70,42 @@ $(document).ready(function () {
     height: '700'
     });
 
-})
+});
+
+function prov() {
+    var n = 1,
+        answ = 0;
+    $('label input[class="check-1"]').each(function () {
+        if (($(this).val() != "true") && ($(this).prop("checked"))
+            || ($(this).val() == "true") && (!$(this).prop("checked"))
+        )
+            n = 0;
+    })
+    answ+=n;
+    n=1;
+    $('label input[class="check-2"]').each(function () {
+        if (($(this).val() != "true") && ($(this).prop("checked"))
+            || ($(this).val() == "true") && (!$(this).prop("checked"))
+        )
+            n = 0;
+    });
+    answ+=n;
+    n=1;
+    $('label input[class="check-3"]').each(function () {
+        if (($(this).val() != "true") && ($(this).prop("checked"))
+            || ($(this).val() == "true") && (!$(this).prop("checked"))
+        )
+            n = 0;
+    });
+    answ+=n;
+    n=1;
+    $('label input[class="check-4"]').each(function () {
+        if (($(this).val() != "true") && ($(this).prop("checked"))
+            || ($(this).val() == "true") && (!$(this).prop("checked"))
+        )
+            n = 0;
+    });
+        answ+=n; n=1;
+
+    return answ;
+}
